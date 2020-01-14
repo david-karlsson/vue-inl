@@ -86,7 +86,7 @@
                 
              <div class="col-xl-8 grid-margin stretch-card">
 
-                <Tickets/>
+                <TicketsList/>
               </div>
         <div class="col-xl-4 grid-margin stretch-card">
 
@@ -136,7 +136,7 @@ import TotalSalesCard from './components/totalSalesCard.vue';
 import TotalPurchasesCard from './components/totalPurchasesCard.vue';
 import TotalOrdersCard from './components/totalOrdersCard.vue';
 import TotalGrowthCard from './components/totalGrowthCard.vue';
-import Tickets from './components/tickets.vue';
+import TicketsList from './components/ticketsList.vue';
 import UpdatesFeed from './components/updatesFeed.vue';
 import Distribution from './components/distribution.vue';
 import SaleReport from './components/saleReport.vue';
@@ -157,7 +157,7 @@ export default {
     TotalPurchasesCard,
     TotalOrdersCard,
     TotalGrowthCard, 
-    Tickets,
+    TicketsList,
     UpdatesFeed,
     Distribution,
     SaleReport,
