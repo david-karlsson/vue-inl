@@ -33,7 +33,7 @@
                     
                  
     
-                     <Ticket/>
+                                       <Ticket :key="ticket.ticket" v-for="ticket of ticketsList" :ticket="ticket"/>
                     
                   </tbody>
                 </table>
@@ -53,6 +53,7 @@ export default {
     data() {
     return {
         ticketsList: []
+        
     }   
       },
 
@@ -62,7 +63,9 @@ export default {
       .then(data => {
          
 
-        this.ticketsList = data
+        this.ticketsList = data[0].tickets
+        
+        
 
       })
 }

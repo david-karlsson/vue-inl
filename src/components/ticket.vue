@@ -2,20 +2,20 @@
     <tr>
                       <td class="pl-0">
                         <div class="icon-rounded-warning icon-rounded-md">
-                          <h4 class="font-weight-medium">VR</h4>
+                          <h4 class="font-weight-medium">{{getInitials(ticket)}}</h4>
                         </div>
                       </td>
                       <td>
-                        <p class="mb-0">Vilson Rowa</p>
+                        <p class="mb-0">{{ticket.name}}</p>
                         <p class="text-muted mb-0">Densar</p>
                       </td>
                       <td>
-                        <p class="mb-0">05 Nov 2018</p>
-                        <p class="text-muted mb-0">02:30 am</p>
+                        <p class="mb-0">{{getDate(ticket)}}</p>
+                        <p class="text-muted mb-0">{{getTime(ticket)}}</p>
                       </td>
                       <td>
-                        <p class="mb-0">1072 Orion Expansion</p>
-                        <p class="text-muted mb-0">On Way</p>
+                        <p class="mb-0">{{ticket.project}}</p>
+                        <p class="text-muted mb-0">{{ticket.other}}</p>
                       </td>
                       <td class="pr-0">
                         <i class="mdi mdi-dots-horizontal icon-sm cursor-pointer"></i>
@@ -29,6 +29,36 @@ export default {
   props: {
     ticket: Object
   },
+  methods: {
+        getInitials: (ticket) => {
+            let names = ticket.name.split(" ");
+            let initials = names[0][0] + names[1][0]; 
 
+            return initials;
+        },
+
+        getDate: (ticket) => {
+            let dateTime = ticket.date.split(",");
+            let date = dateTime[0];
+            // let time = dateTime[1];
+
+
+            return date;
+
+        },
+          getTime: (ticket) => {
+            let dateTime = ticket.date.split(",");
+           
+            let time = dateTime[1];
+
+
+            return time;
+
+        }
+
+
+
+  
+}
 }
 </script>
