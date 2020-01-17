@@ -3,16 +3,15 @@
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-md-end flex-wrap">
                 <p class="card-title">Tickets</p>
-                <div class="dropdown mb-3 mb-md-0">
-                  <div class="btn btn-sm btn-outline-light dropdown-toggle text-dark" type="button" id="dropdownMenuDate1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                {{ticketYear[0].year}}                 
 
-                    </div>
+                <div class="dropdown mb-3 mb-md-0">
+                  
+                  <select class="btn btn-sm btn-outline-light dropdown-toggle text-dark" type="button" id="dropdownMenuDate1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                    </select>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate1">
-                    <a class="dropdown-item" :href="ticketYear[0].year" :value="2017">    {{ticketYear[0].year}}</a>
-                    <a class="dropdown-item" :href="ticketYear[1].year" :value="2018">    {{ticketYear[1].year}}</a>
-                    <a class="dropdown-item" :href="ticketYear[2].year" :value="2019">    {{ticketYear[2].year}}</a>
-                   
+                                                  {{populateSelectBox()}}                 
+
                   </div>
                 </div>
               </div>
@@ -66,10 +65,9 @@ methods: {
         .then(data => { 
             
             for(let obj of data) {
-              let element = document.createElement('option class="dropdown-item"');
+              let element = document.createElement('option');
               element.textContent = obj.year;
               element.value = obj.year;
-              element.selected = true;
               document.getElementById('dropdownMenuDate1').appendChild(element);
             }
             
@@ -100,11 +98,18 @@ methods: {
                 //  let mappedTicket = ticketsList.map(tickets => tickets.name)
                 //   this.ticket = mappedTicket;
                  
-                //  for(let i=0; i < this.ticketsList.length; i++) {
-                         
-                //          this.ticketsList = data[i].tickets;
+                 (function () {
 
-                //   }
+                  for(let i=0; i < this.ticketsList.length; i++) {
+                         
+                         this.ticketsList = data[i].tickets;
+
+                  }
+
+})();
+                 
+
+
 
           //  i++
         //  
