@@ -164,7 +164,25 @@ export default {
     OpenInvocies,
     Footer
     
-  }
+  },
+
+methods: {
+      populateSelectBox: () => {
+        fetch('https://inlupp-fa.azurewebsites.net/api/tickets').then(res => res.json())
+        .then(data => { 
+            
+            for(let obj of data) {
+              let element = document.createElement('option class="dropdown-item"');
+              element.textContent = obj.year;
+              element.value = obj.year;
+              element.selected = true;
+              document.getElementById('dropdownMenuDate1').appendChild(element);
+            }
+            
+        });
+      }
+  },
+
 }
 </script>
 

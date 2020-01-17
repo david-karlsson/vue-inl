@@ -27,6 +27,7 @@ export default {
     }   
       },
 
+    
     created(){
      fetch ('https://inlupp-fa.azurewebsites.net/api/notifications')
       .then(res => res.json())

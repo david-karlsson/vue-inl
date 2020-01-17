@@ -1,7 +1,7 @@
 <template>
     <tr>
                       <td class="pl-0">
-                        <div class="icon-rounded-warning icon-rounded-md">
+                        <div class=" icon-rounded-md" v-bind:class="statusColor(ticket.other)">
                           <h4 class="font-weight-medium">{{getInitials(ticket)}}</h4>
                         </div>
                       </td>
@@ -40,7 +40,6 @@ export default {
         getDate: (ticket) => {
             let dateTime = ticket.date.split(",");
             let date = dateTime[0];
-            // let time = dateTime[1];
 
 
             return date;
@@ -54,7 +53,24 @@ export default {
 
             return time;
 
-        }
+        },
+        statusColor: (status) => {
+            switch(status) {
+                case "Start session":
+                    return "icon-rounded-success"
+                    
+                case "View on map":
+                    return "icon-rounded-info"
+                    
+                case "End session":
+                    return "icon-rounded-danger"
+                  
+                default:
+                    return "icon-rounded-primary"
+            } 
+            
+            }
+        
 
 
 

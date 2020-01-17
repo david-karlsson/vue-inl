@@ -1,7 +1,7 @@
 <template>
       <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
+                  <div class="preview-icon " v-bind:class="statusColor(notification.title)">
                     <i class="mdi mdi-information mx-0"></i>
                   </div>
                 </div>
@@ -21,6 +21,21 @@ export default {
   props: {
     notification: Object
   },
+    methods:{
+        statusColor: (status) => {
+            switch(status) {
+                case "Settings":
+                    return "bg-success"
+                                              
+                case "Application Error":
+                    return "bg-danger"
+                  
+                default:
+                    return "bg-primary"
+            } 
+        }
+      },
+
 
 }
 </script>
